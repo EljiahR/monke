@@ -15,9 +15,10 @@ function getElementViaKey(e){
 function playSound(thisElement) {
 	if(thisElement.classList.contains('click')) { thisElement.classList.remove('click');}; // Noticed problem with buttons sometimes sticking, this solves that issue
 	thisElement.classList.add('click');
-	sound = document.querySelector(`audio[data-key="${thisElement.dataset.key}"]`);
-	sound.load();
-	sound.play();
+	const sound = document.querySelector(`audio[data-key="${thisElement.dataset.key}"]`);
+	const newSound = sound.cloneNode();
+
+	newSound.play();
 }
 
 const boxes = document.querySelectorAll('.img-border'); // boxes being the div elements being used as buttons
